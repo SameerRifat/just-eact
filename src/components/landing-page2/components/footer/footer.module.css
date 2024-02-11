@@ -1,0 +1,142 @@
+.footer_container {
+    /* background: #F5F3F1; */
+    background: #EFEDEA;
+}
+
+.footer_columns {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    /* width: 95%; */
+    margin: 0 auto;
+    padding: 32px;
+}
+
+.column_heading {
+    font-size: 20px;
+    color: #242e30;
+}
+
+.footer_links {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.footer_links>li {
+    font-size: 0.875rem;
+    color: #242e30;
+}
+
+.footer_links>li:hover {
+    text-decoration: underline;
+}
+
+.social_links {
+    padding: 32px;
+    /* padding-top: 5px;
+    padding-bottom: 20px; */
+    background: #F5F3F1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.social_links_heading {
+    color: #242e30;
+    font-size: 20px;
+    line-height: 1;
+}
+
+.app_links {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.app_link {
+    width: 135px;
+    height: 40px;
+    background: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.footer_feedback>p {
+    font-size: 14px;
+    color: #242e30;
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+.footer_feedback>a {
+    font-size: 14px;
+    color: #242e30;
+    text-decoration: underline;
+}
+.followback_links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.followback_link>span {
+    border: 1px solid #242e30;
+    padding: 5px;
+    font-size: 20px;
+    width: 28px;
+    height: 28px;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.payment_cards {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: #efedea;
+    padding: 10px 32px;
+    padding-bottom: 5px;
+    justify-content: flex-end;
+}
+
+.cookie_link {
+    text-align: center;
+    background: #efedea;
+    padding: 10px 16px;
+    padding-bottom: 15px;
+}
+
+.cookie_link>a {
+    color: #242e30;
+    text-decoration: underline;
+    font-size: 16px;
+}
+
+@media screen and (max-width: 1024px) {
+    .footer_columns {
+        grid-template-columns: 1fr;
+        width: 100%;
+        padding: 0;
+    }
+    .social_links{
+        flex-direction: column;
+        padding: 16px;
+        padding-bottom: 20px;
+        padding-top: 10px;
+        /* justify-content: flex-start; */
+        align-items: flex-start;
+    }
+    .payment_cards{
+        justify-content: flex-start;
+        padding: 5px 16px;
+    }
+}

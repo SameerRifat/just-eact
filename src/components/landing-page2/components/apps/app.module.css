@@ -1,0 +1,143 @@
+.apps_section{
+    background-color: white;
+}
+
+.apps_container {
+    width: 90%;
+    max-width: 120rem;
+    margin: 0 auto;
+    /* border: 4px solid red; */
+    /* margin: 7rem auto; */
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 7rem;
+    margin-bottom: 4rem;
+    padding-left: 5rem;
+}
+.apps_sub_container{
+    display: flex;
+    gap: 16px;
+}
+/* .apps_left{
+    max-width: 220px;
+} */
+.promo_img_container{
+    width: 220px;
+}
+.promo_img{
+    width: 100%;
+    height: 100%;
+}
+
+.apps_right {
+    /* border: 2px solid red; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin: auto;
+}
+
+.apps_right>p {
+    text-align: center;
+}
+
+.apps_heading {
+    max-width: 570px;
+    font-size: 2rem;
+    color: #242e30;
+    font-weight: 800;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.app_links {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 24px;
+    justify-content: center;
+}
+
+.app_link {
+    width: 135px;
+    height: 40px;
+    background: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+
+@media screen and (max-width: 1024px) {
+    .apps_container {
+        padding-left: 0;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .apps_container {
+        margin-top: 10rem;
+        width: 95%;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .apps_container {
+        margin-top: 12rem;
+    }
+
+    .app_links {
+        flex-direction: column;
+        /* border: 2px solid red; */
+    }
+
+    .apps_heading {
+        font-size: 1.5rem;
+    }
+    .promo_img_container{
+        max-width: 150px;
+        margin-top: 16px;
+    }
+    /* .apps_left {
+        width: 200px;
+        margin-top: 16px;
+    } */
+}
+
+@media screen and (max-width: 700px) {
+    .apps_heading {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .promo_img_container{
+        max-width: 120px;
+    }
+    .app_links{
+        margin-top: 15px;
+    }
+
+    .apps_left>img {
+        width: 100% !important;
+    }
+}
+@media screen and (max-width: 400px) {
+    .apps_container{
+        margin-top: 14rem;
+    }
+    .promo_img_container{
+        max-width: 100px;
+    }
+}
+@media screen and (max-width: 350px) {
+    .apps_container{
+        margin-top: 16rem;
+    }
+    .promo_img_container{
+        max-width: 80px;
+    }
+}

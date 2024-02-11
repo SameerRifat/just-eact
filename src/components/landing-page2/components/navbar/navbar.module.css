@@ -1,0 +1,47 @@
+.navbar_container{
+    background: white;
+    box-shadow: rgba(0, 0, 0, 0.04) 0px 8px 8px 0px, rgba(0, 0, 0, 0.1) 0px 8px 20px -3px, rgba(0, 0, 0, 0.06) 0px 4px 8px -2px;
+    position: relative;
+    z-index: 100;
+}
+.navbar_sub_container{
+    padding: 0 40px;
+    min-height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+@media screen and (max-width: 1024px) {
+    .navbar_sub_container{
+        padding: 0 32px;
+    }
+}
+@media screen and (max-width: 800px) {
+    .navbar_sub_container{
+        padding: 0 16px;
+    }
+    .navbar_sub_container{
+        min-height: 56px;
+    }
+}
+
+/* NavbarLinks */
+.nav_links{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.nav_link{
+    /* padding: 12px; */
+    color: rgb(36, 46, 48);
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    border-radius: 30px;
+    padding-left: 15px;
+    padding-right: 15px;
+    gap: 5px;
+}
+.nav_link:hover{
+    background: rgb(243, 243, 243);
+}
