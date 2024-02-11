@@ -1,206 +1,195 @@
 .hero_container {
-    max-height: calc(100vh - 80px);
-    height: calc(100vh - 80px);
-    position: relative;
+  position: relative;
 }
 
 .hero_img_container {
-    width: 100%;
-    position: relative;
-    height: 100%;
-}
-
-@media screen and (max-width: 870px) {
-    .hero_container {
-        height: auto;
-    }
-
-    .hero_img_container {
-        height: auto;
-        padding-top: calc(480 / 960 * 100%);
-    }
+  width: 100%;
+  position: relative;
+  height: 100%;
+  max-height: 600px;
+  min-height: 100px;
 }
 
 .hero_img {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+@media screen and (max-width: 870px) {
+  .hero_img_container {
+    height: auto;
+  }
 }
 
 .search_card {
-    position: absolute;
-    left: 50%;
-    bottom: -14%;
-    transform: translate(-50%, 0);
-    background: white;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 2px 4px 0px;
-    color: rgb(66, 84, 87);
-    font-size: 2rem;
-    border-radius: 12px;
-    z-index: 10;
-    max-width: 800px;
-    width: 95%;
-    min-height: 211px;
-    padding: 16px;
+  position: absolute;
+  left: 50%;
+  bottom: -18%;
+  transform: translate(-50%, 0);
+  background: white;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 2px 4px 0px;
+  color: rgb(66, 84, 87);
+  font-size: 2rem;
+  border-radius: 12px;
+  z-index: 10;
+  max-width: 800px;
+  width: 95%;
+  min-height: 211px;
+  padding: 16px;
 }
 
 .search_title {
-    font-size: 3rem;
-    line-height: 0;
-    margin-bottom: 32px;
-    color: rgb(251, 97, 0);
-    text-align: center;
+  font-size: 3rem;
+  line-height: 0;
+  margin-bottom: 32px;
+  color: rgb(251, 97, 0);
+  text-align: center;
 }
 
 .search_sub_title {
-    font-size: 1.25rem;
-    font-weight: 400;
-    margin-bottom: 16px;
-    text-align: center;
-    color: rgb(66, 84, 87);
+  font-size: 1.25rem;
+  font-weight: 400;
+  margin-bottom: 16px;
+  text-align: center;
+  color: rgb(66, 84, 87);
 }
 
 .form {
-    min-height: 90px;
+  min-height: 90px;
 }
 
 .form_search_wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 64px;
-    box-sizing: border-box;
-    border: 1px solid rgb(138, 135, 134);
-    border-radius: 50rem;
-    max-width: 611px;
-    margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 64px;
+  box-sizing: border-box;
+  border: 1px solid rgb(138, 135, 134);
+  border-radius: 50rem;
+  max-width: 611px;
+  margin: 0 auto;
 }
 
 .search_field_wrapper {
-    height: 30px;
-    flex: 1;
-    margin-left: 20px;
+  height: 30px;
+  flex: 1;
+  margin-left: 20px;
 }
 
 .no_border_outline {
-    border: none !important;
-    outline: none !important;
+  border: none !important;
+  outline: none !important;
 }
 
 .no_border_outline .Mui-focused .MuiOutlinedInput-notchedOutline {
-    border: none !important;
+  border: none !important;
 }
 
 .no_border_outline input::placeholder {
-    color: inherit !important;
+  color: inherit !important;
 }
 
 .no_border_outline textarea::placeholder {
-    color: inherit !important;
+  color: inherit !important;
 }
 
-
 .search_btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgb(251, 97, 0);
-    box-sizing: border-box;
-    color: rgb(255, 255, 255);
-    cursor: pointer;
-    font-family: JetSansDigital, Arial, sans-serif;
-    font-size: 1.25rem;
-    line-height: 1.4;
-    font-weight: 700;
-    height: 55px;
-    min-height: 55px;
-    border-radius: 55rem;
-    margin: 4px;
-    padding: 14px 24px;
-    border: none;
-    outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(251, 97, 0);
+  box-sizing: border-box;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  font-family: JetSansDigital, Arial, sans-serif;
+  font-size: 1.25rem;
+  line-height: 1.4;
+  font-weight: 700;
+  height: 55px;
+  min-height: 55px;
+  border-radius: 55rem;
+  margin: 4px;
+  padding: 14px 24px;
+  border: none;
+  outline: none;
 }
 
 @media screen and (max-width: 900px) {
-    .search_card {
-        bottom: -25%;
-    }
+  .search_card {
+    bottom: -35%;
+  }
 }
 
 @media screen and (max-width: 800px) {
-    .search_card {
-        bottom: -35%;
-    }
-    .search_title{
-        font-size: 2rem;
-    }
+  .search_card {
+    bottom: -45%;
+  }
+  .search_title {
+    font-size: 2rem;
+  }
 }
 
 @media screen and (max-width: 640px) {
-    .search_card {
-        bottom: -45%;
-    }
-    .search_sub_title{
-        font-size: 1rem;
-    }
-    .search_btn{
-        width: 55px;
-        height: 55px;
-        border-radius: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+  .search_card {
+    bottom: -50%;
+  }
+  .search_sub_title {
+    font-size: 1rem;
+  }
+  .search_btn {
+    width: 55px;
+    height: 55px;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 @media screen and (max-width: 550px) {
-    .search_card{
-        padding-top: 0;
-    }
-    .search_title{
-        line-height: 1;
-        margin-bottom: 0;
-    }
-    .search_card {
-        bottom: -55%;
-    }
+  .search_card {
+    bottom: -75%;
+  }
+  .search_title {
+    line-height: 1;
+    margin-bottom: 0;
+  }
 }
 @media screen and (max-width: 490px) {
-    .search_title{
-        font-size: 1.7rem;
-    }
-    .search_card {
-        bottom: -65%;
-    }
+  .search_card {
+    bottom: -90%;
+  }
+  .search_title {
+    font-size: 1.7rem;
+  }
 }
 @media screen and (max-width: 430px) {
-    .search_title{
-        font-size: 1.6rem;
-    }
-    .search_card {
-        bottom: -70%;
-    }
-    .search_field_wrapper{
-        margin-left: 10px;
-    }
+  .search_card {
+    bottom: -13rem;
+  }
+  .search_title {
+    font-size: 1.6rem;
+  }
+  .search_field_wrapper {
+    margin-left: 10px;
+  }
 }
 @media screen and (max-width: 400px) {
-    .search_card {
-        transform: translate(-50%, 50%);
-        bottom: -40%;
-    }
+  .search_card {
+    transform: translate(-50%, 50%);
+    bottom: -80%;
+  }
 }
 @media screen and (max-width: 350px) {
-    .search_card {
-        transform: translate(-50%, 50%);
-        bottom: -55%;
-    }
+  /* .search_card {
+    transform: translate(-50%, 50%);
+    bottom: -55%;
+  } */
 }
 @media screen and (max-width: 300px) {
-    .search_card {
-        transform: translate(-50%, 50%);
-        bottom: -65%;
-    }
+  /* .search_card {
+    transform: translate(-50%, 50%);
+    bottom: -65%;
+  } */
 }
