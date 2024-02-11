@@ -8,6 +8,7 @@ import MuiAccordionDetails from '@mui/material/AccordionDetails';
 import styled from '@emotion/styled';
 import Link from 'next/link';
 import { Icon } from "@iconify/react";
+import Image from 'next/image';
 
 
 const Footer = () => {
@@ -95,7 +96,7 @@ const Footer = () => {
                             <>
                                 <Accordion sx={{ background: '#EFEDEA' }}>
                                     <AccordionSummary
-                                        expandIcon={<ExpandMoreOutlinedIcon style={{color: '##242e30', fontWeight: 800}}/>}
+                                        expandIcon={<ExpandMoreOutlinedIcon style={{ color: '##242e30', fontWeight: 800 }} />}
                                     >
                                         <h3 className={styles.column_heading}>{column.title}</h3>
                                     </AccordionSummary>
@@ -118,13 +119,13 @@ const Footer = () => {
                     <h2 className={styles.social_links_heading}>Download our apps</h2>
                     <div className={styles.app_links}>
                         <Link href='#' className={styles.app_link}>
-                            App Store
+                            <Image src='/landing-page/apple-download.svg' alt='apple download' width={135} height={40} />
                         </Link>
                         <Link href='#' className={styles.app_link}>
-                            Google Play
+                            <Image src='/landing-page/play-store-download.svg' alt='play-store download' width={135} height={40} />
                         </Link>
                         <Link href='#' className={styles.app_link}>
-                            App Gallery
+                            <Image src='/landing-page/app-gallery.svg' alt='play-store download' width={135} height={40} />
                         </Link>
                     </div>
                 </div>
@@ -150,15 +151,21 @@ const Footer = () => {
             </div>
 
             <div className={styles.payment_cards}>
-                    <p>MasterCard</p>
-                    <p>visa</p>
-                    <p>SafeKey</p>
-                </div>
-                <div className={styles.cookie_link}>
-                    <Link href='#'>
-                        Check my cookie preferences
-                    </Link>
-                </div>
+                <Link href='#'>
+                    <Image src='/landing-page/mastercard.svg' alt='mastercard' width={67} height={25} />
+                </Link>
+                <Link href='#'>
+                    <Image src='/landing-page/visa.svg' alt='visa' width={67} height={25} />
+                </Link>
+                <Link href='#'>
+                    <Image src='/landing-page/safekey.svg' alt='safekey' width={67} height={25} />
+                </Link>
+            </div>
+            <div className={styles.cookie_link}>
+                <Link href='#'>
+                    Check my cookie preferences
+                </Link>
+            </div>
         </footer >
     );
 };

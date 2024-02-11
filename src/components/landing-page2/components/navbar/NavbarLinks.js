@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import styles from './navbar.module.css';
 import navData from './navdata';
 import Link from 'next/link';
-import Language from './Language';
+import Language from './language/Language';
 import { useMediaQuery } from '@mui/material';
 import CardGiftcardOutlinedIcon from '@mui/icons-material/CardGiftcardOutlined';
 
@@ -22,7 +22,7 @@ const NavbarLinks = () => {
                     return (
                         <Link href={navLink.href} className={styles.nav_link} key={navLink.id}>
                             {lgUp && navLink.icon && (
-                                <navLink.icon />
+                                <img src={navLink.icon} alt='icon' width={24} height={24}/>
                             )}
                             <p>{navLink.title}</p>
                         </Link>
@@ -31,7 +31,7 @@ const NavbarLinks = () => {
                 {mdUp && <Language language={language} setLanguage={setLanguage} />}
                 {!mdUp && (
                     <Link href='/offers'>
-                        <CardGiftcardOutlinedIcon style={{color: 'rgb(243, 104, 5)'}}/>
+                        <CardGiftcardOutlinedIcon style={{ color: 'rgb(243, 104, 5)' }} />
                     </Link>
                 )}
             </div>

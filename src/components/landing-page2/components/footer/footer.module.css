@@ -1,14 +1,13 @@
 .footer_container {
-    /* background: #F5F3F1; */
     background: #EFEDEA;
 }
 
 .footer_columns {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    /* width: 95%; */
     margin: 0 auto;
     padding: 32px;
+    max-width: 85rem;
 }
 
 .column_heading {
@@ -35,12 +34,12 @@
 
 .social_links {
     padding: 32px;
-    /* padding-top: 5px;
-    padding-bottom: 20px; */
     background: #F5F3F1;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    max-width: 85rem;
+    margin: 0 auto;
 }
 
 .social_links_heading {
@@ -103,9 +102,11 @@
     align-items: center;
     gap: 20px;
     background: #efedea;
-    padding: 10px 32px;
+    padding: 15px 32px;
     padding-bottom: 5px;
     justify-content: flex-end;
+    max-width: 85rem;
+    margin: 0 auto;
 }
 
 .cookie_link {
@@ -132,11 +133,11 @@
         padding: 16px;
         padding-bottom: 20px;
         padding-top: 10px;
-        /* justify-content: flex-start; */
         align-items: flex-start;
     }
     .payment_cards{
         justify-content: flex-start;
-        padding: 5px 16px;
+        padding-left: 16px;
+        padding-right: 16px;
     }
 }

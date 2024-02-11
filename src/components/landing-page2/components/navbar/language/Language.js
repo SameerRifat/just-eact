@@ -1,45 +1,25 @@
 'use client'
 
 import React, { useEffect } from 'react';
-import { Avatar, IconButton, Menu, MenuItem, Typography } from '@mui/material';
+import { Avatar, IconButton, Menu, MenuItem, Popover, Typography } from '@mui/material';
 import { Stack } from '@mui/system';
 import { useTranslation } from 'react-i18next';
-
-const Languages = [
-    {
-        flagname: 'English (UK)',
-        icon: '/flag/icon-flag-en.svg',
-        value: 'en',
-    },
-    {
-        flagname: '中国人 (Chinese)',
-        icon: '/flag/icon-flag-cn.svg',
-        value: 'ch',
-    },
-    {
-        flagname: 'français (French)',
-        icon: '/flag/icon-flag-fr.svg',
-        value: 'fr',
-    },
-    {
-        flagname: 'عربي (Arabic)',
-        icon: '/flag/icon-flag-sa.svg',
-        value: 'ar',
-    },
-];
+import Languages from './languagesData';
 
 const Language = ({ language, setLanguage }) => {
-    const [anchorEl, setAnchorEl] = React.useState(null);
-    const open = Boolean(anchorEl);
     const { i18n } = useTranslation();
 
-    const handleClick = (event) => {
+    const [anchorEl, setAnchorEl] = React.useState(null);
+
+    const handlePopoverOpen = (event) => {
         setAnchorEl(event.currentTarget);
     };
 
-    const handleClose = () => {
+    const handlePopoverClose = () => {
         setAnchorEl(null);
     };
+
+    const open = Boolean(anchorEl);
 
     useEffect(() => {
         i18n.changeLanguage(language);
@@ -53,9 +33,8 @@ const Language = ({ language, setLanguage }) => {
                 aria-controls={open ? 'long-menu' : undefined}
                 aria-expanded={open ? 'true' : undefined}
                 aria-haspopup="true"
-                onClick={handleClick}
-                // onMouseEnter={handleClick}
-                // onMouseLeave={handleClose}
+                onMouseEnter={handlePopoverOpen}
+                onMouseLeave={handlePopoverClose}
                 sx={{
                     padding: '12px',
                     borderRadius: '100%'
@@ -63,18 +42,13 @@ const Language = ({ language, setLanguage }) => {
             >
                 <Avatar src={Languages.find(lang => lang.value === language)?.icon} alt={language} sx={{ width: 20, height: 20 }} />
             </IconButton>
-            <Menu
-                id="long-menu"
-                anchorEl={anchorEl}
-                open={open}
-                onClose={handleClose}
-                // onMouseEnter={handleClick}
-                // onMouseLeave={handleClose}
+            <Popover
+                id="mouse-over-popover"
                 sx={{
-                    '& .MuiMenu-paper': {
-                        width: '200px',
-                    },
+                    pointerEvents: 'none',
                 }}
+                open={open}
+                anchorEl={anchorEl}
                 anchorOrigin={{
                     vertical: 'bottom',
                     horizontal: 'right',
@@ -83,6 +57,8 @@ const Language = ({ language, setLanguage }) => {
                     vertical: 'top',
                     horizontal: 'right',
                 }}
+                onClose={handlePopoverClose}
+                disableRestoreFocus
             >
                 {Languages.map((option, index) => (
                     <MenuItem
@@ -99,7 +75,7 @@ const Language = ({ language, setLanguage }) => {
                         </Stack>
                     </MenuItem>
                 ))}
-            </Menu>
+            </Popover>
         </>
     );
 };

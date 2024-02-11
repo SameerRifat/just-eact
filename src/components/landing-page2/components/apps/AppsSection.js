@@ -38,10 +38,10 @@ const AppsSection = () => {
                         </p>
                         <div className={styles.app_links}>
                             <Link href='#' className={styles.app_link}>
-                                App Store
+                                <Image src='/landing-page/apple-download.svg' alt='apple download' width={135} height={40} />
                             </Link>
                             <Link href='#' className={styles.app_link}>
-                                Google Play
+                            <Image src='/landing-page/play-store-download.svg' alt='play-store download' width={135} height={40} />
                             </Link>
                         </div>
                     </div>
