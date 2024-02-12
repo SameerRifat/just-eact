@@ -9,7 +9,7 @@ import MobileNavbar from './MobileNavbar';
 
 const Navbar = () => {
     const lgUp = useMediaQuery('(min-width: 1024px)');
-    const mdUp = useMediaQuery('(min-width: 768px)');
+    const mdUp = useMediaQuery('(min-width: 900px)');
 
     const [openSidebar, setOpenSidebar] = useState(false)
 

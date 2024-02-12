@@ -22,7 +22,7 @@ const navData = [
     {
         id: uniqueId(),
         title: 'Login',
-        href: '/account/login',
+        href: '/auth/sign-in',
     },
     {
         id: uniqueId(),

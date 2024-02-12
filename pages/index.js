@@ -37,12 +37,13 @@ const Root = (props) => {
         businessName={configData?.business_name}
         configData={configData}
       />
-      <LandingPage />
-      {/* {data && (
+      {/* <LandingPage /> */}
+      {data && (
         <LandingLayout configData={configData} landingPageData={data}>
-          <LandingPage configData={configData} landingPageData={data} />
+          {/* <LandingPage configData={configData} landingPageData={data} /> */}
+          <LandingPage />
         </LandingLayout>
-      )} */}
+      )}
     </>
   );
 };

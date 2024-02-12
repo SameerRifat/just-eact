@@ -3,7 +3,8 @@
     left: 0;
     top: 0;
     width: 100%;
-    height: calc(100vh - 56px);
+    /* height: calc(100vh - 56px); */
+    height: auto;
     background: white;
     z-index: 9999;
 }

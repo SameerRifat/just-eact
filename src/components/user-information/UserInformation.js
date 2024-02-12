@@ -31,6 +31,7 @@ const UserInformation = ({ page, configData, orderId }) => {
   };
   const userToken = getToken();
   const { data, refetch, isLoading } = useGetUserInfo(handleSuccess);
+  console.log('data: ', data)
   const onSuccessHandlerForUserDelete = (res) => {
     if (res?.errors) {
       toast.error(res?.errors?.[0]?.message);

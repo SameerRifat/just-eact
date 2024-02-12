@@ -11,6 +11,8 @@ import useGetModule from "../../api-manage/hooks/react-query/useGetModule";
 import { useRouter } from "next/router";
 import { setSelectedModule } from "../../redux/slices/utils";
 import { useDispatch } from "react-redux";
+import Navbar from "../header2/navbar/Navbar";
+import Footer from "../footer2/Footer";
 
 const MainLayout = ({ children, configData, landingPageData }) => {
   const [rerenderUi, setRerenderUi] = useState(false);
@@ -41,21 +43,23 @@ const MainLayout = ({ children, configData, landingPageData }) => {
   }
   return (
     <MainLayoutRoot justifyContent="space-between" key={rerenderUi}>
-      <header>
+      {/* <header>
         <HeaderComponent configData={configData} />
-      </header>
+      </header> */}
+      <Navbar />
       <CustomStackFullWidth mt={isSmall ? "3.5rem" : "5.9rem"}>
         <CustomStackFullWidth sx={{ minHeight: "70vh" }}>
           {children}
         </CustomStackFullWidth>
       </CustomStackFullWidth>
-      <footer>
+      <Footer />
+      {/* <footer>
         <FooterComponent
           configData={configData}
           landingPageData={landingPageData}
         />
       </footer>
-      {isSmall && <BottomNav />}
+      {isSmall && <BottomNav />} */}
     </MainLayoutRoot>
   );
 };
