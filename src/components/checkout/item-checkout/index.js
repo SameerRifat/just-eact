@@ -75,6 +75,7 @@ import {
 
 import CustomImageContainer from "../../CustomImageContainer";
 import thunderstorm from "../assets/thunderstorm.svg";
+import PaymentMethod from "../PaymentMethod";
 
 const ItemCheckout = (props) => {
   const { configData, router, page, cartList, campaignItemList, totalAmount } =
@@ -861,15 +862,29 @@ const ItemCheckout = (props) => {
               pb={{ xs: "1rem", sm: "2rem", md: "4rem" }}
             >
               <CheckoutStepper />
-              {zoneData && (
-                <AddPaymentMethod
+              {!zoneData && (
+                // <AddPaymentMethod
+                //   setPaymentMethod={setPaymentMethod}
+                //   paymentMethod={paymentMethod}
+                //   zoneData={zoneData}
+                //   configData={configData}
+                //   orderType={orderType}
+                //   usePartialPayment={usePartialPayment}
+                //   offlinePaymentOptions={offlinePaymentOptions}
+                //   setSwitchToWallet={setSwitchToWallet}
+                // />
+                <PaymentMethod
                   setPaymentMethod={setPaymentMethod}
                   paymentMethod={paymentMethod}
                   zoneData={zoneData}
                   configData={configData}
                   orderType={orderType}
                   usePartialPayment={usePartialPayment}
+                  setOpenModel={true}
+                  forprescription={null}
                   offlinePaymentOptions={offlinePaymentOptions}
+                  paymentMethodImage={""}
+                  setPaymentMethodImage={()=>null}
                   setSwitchToWallet={setSwitchToWallet}
                 />
               )}
