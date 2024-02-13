@@ -9,9 +9,10 @@ import styled from '@emotion/styled';
 import Link from 'next/link';
 import { Icon } from "@iconify/react";
 import Image from 'next/image';
-
+import { useTranslation } from "react-i18next";
 
 const Footer = () => {
+    const { t } = useTranslation();
     const lgUp = useMediaQuery('(min-width: 1024px)');
     // Array of objects representing each column in the footer
     const footerColumns = [
@@ -85,10 +86,10 @@ const Footer = () => {
 
                         {lgUp ? (
                             <>
-                                <h3>{column.title}</h3>
+                                <h3>{t(column.title)}</h3>
                                 <ul className={styles.footer_links}>
                                     {column.links.map((link, i) => (
-                                        <li key={i}><a href="#">{link}</a></li>
+                                        <li key={i}><a href="#">{t(link)}</a></li>
                                     ))}
                                 </ul>
                             </>
@@ -98,12 +99,12 @@ const Footer = () => {
                                     <AccordionSummary
                                         expandIcon={<ExpandMoreOutlinedIcon style={{ color: '##242e30', fontWeight: 800 }} />}
                                     >
-                                        <h3 className={styles.column_heading}>{column.title}</h3>
+                                        <h3 className={styles.column_heading}>{t(column.title)}</h3>
                                     </AccordionSummary>
                                     <AccordionDetails>
                                         <ul className={styles.footer_links}>
                                             {column.links.map((link, i) => (
-                                                <li key={i}><a href="#">{link}</a></li>
+                                                <li key={i}><a href="#">{t(link)}</a></li>
                                             ))}
                                         </ul>
                                     </AccordionDetails>
@@ -116,7 +117,7 @@ const Footer = () => {
 
             <div className={styles.social_links}>
                 <div className={styles.footer_brands}>
-                    <h2 className={styles.social_links_heading}>Download our apps</h2>
+                    <h2 className={styles.social_links_heading}>{t("Download our apps")}</h2>
                     <div className={styles.app_links}>
                         <Link href='#' className={styles.app_link}>
                             <Image src='/landing-page/apple-download.svg' alt='apple download' width={135} height={40} />
@@ -130,16 +131,16 @@ const Footer = () => {
                     </div>
                 </div>
                 <div className={styles.footer_feedback}>
-                    <h2 className={styles.social_links_heading}>Feedback</h2>
+                    <h2 className={styles.social_links_heading}>{t("Feedback")}</h2>
                     <p>
-                        Help us improve our website
+                        {t("Help us improve our website")}
                     </p>
                     <Link href='#'>
-                        Send feedback
+                        {t("Send feedback")}
                     </Link>
                 </div>
                 <div className={styles.footer_followback}>
-                    <h2 className={styles.social_links_heading}>Followback</h2>
+                    <h2 className={styles.social_links_heading}>{t("Followback")}</h2>
                     <div className={styles.followback_links}>
                         <CustomLink href='#'><Icon icon="ri:rss-line" color='#242e30' /></CustomLink>
                         <CustomLink href='#'><Icon icon="ri:facebook-fill" color='#242e30' /></CustomLink>
@@ -163,7 +164,7 @@ const Footer = () => {
             </div>
             <div className={styles.cookie_link}>
                 <Link href='#'>
-                    Check my cookie preferences
+                    {t("Check my cookie preferences")}
                 </Link>
             </div>
         </footer >

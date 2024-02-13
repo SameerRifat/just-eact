@@ -5,9 +5,6 @@ import styles from './navbar.module.css';
 import navData from './navData';
 import Link from 'next/link';
 import { Avatar, useMediaQuery } from '@mui/material';
-import MobileNavbarLanguages from './language/MobileNavbarLanguages';
-import Languages from './language/languagesData';
-import KeyboardArrowRightOutlinedIcon from '@mui/icons-material/KeyboardArrowRightOutlined';
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { useDispatch, useSelector } from 'react-redux';
 import useGetAllCartList from "../../../api-manage/hooks/react-query/add-cart/useGetAllCartList";
@@ -17,15 +14,20 @@ import MobileMenu from './MobileMenu';
 import { setWalletAmount } from "../../../redux/slices/cart";
 import { setUser } from "../../../redux/slices/profileInfo";
 import useGetUserInfo from "../../../api-manage/hooks/react-query/user/useGetUserInfo";
+import { useTranslation } from "react-i18next";
+import CustomLanguage from './mobileNavLanguage/CustomLanguage';
 
 const MobileNavbar = ({ openSidebar, setOpenSidebar }) => {
-    const lgUp = useMediaQuery('(min-width: 1024px)');
+    const { t } = useTranslation();
     const mdUp = useMediaQuery('(min-width: 900px)');
 
-    const [openLangues, setOpenLanguages] = useState(false)
 
     const loginLinkIndex = navData.findIndex(link => link.title === 'Login');
-    const token = localStorage.getItem('token')
+
+    let token = undefined;
+    if (typeof window !== "undefined") {
+        token = localStorage.getItem("token");
+    }
 
     const dispatch = useDispatch();
     const handleSuccess = (res) => {
@@ -45,6 +47,10 @@ const MobileNavbar = ({ openSidebar, setOpenSidebar }) => {
     useEffect(() => {
         cartListRefetch();
     }, []);
+
+    const { configData, countryCode, language } = useSelector(
+        (state) => state.configData
+    );
 
     return (
         <>
@@ -78,11 +84,11 @@ const MobileNavbar = ({ openSidebar, setOpenSidebar }) => {
                                                     </div>
 
                                                     <span className={styles.mobile_nav_link_title} style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
-                                                        {usrInfo?.f_name}
+                                                        {t(usrInfo?.f_name)}
                                                         <span>{usrInfo?.email}</span>
                                                     </span>
                                                 </div>
-                                                <MobileMenu cartListRefetch={cartListRefetch} setOpenSidebar={setOpenSidebar}/>
+                                                <MobileMenu cartListRefetch={cartListRefetch} setOpenSidebar={setOpenSidebar} />
                                             </>
                                         ) : (
                                             <Link href={navLink.href} className={styles.mobile_nav_link} key={navLink.id}
@@ -91,34 +97,22 @@ const MobileNavbar = ({ openSidebar, setOpenSidebar }) => {
 
                                                 <div className={styles.mobile_nav_link_icon}>
                                                     {navLink.icon ? (
-                                                        <img src={navLink.icon} alt='icon' width={24} height={24} />
+                                                        <img src={navLink.icon} alt={t('icon')} width={24} height={24} />
                                                     ) : (<svg></svg>)}
                                                 </div>
                                                 <span className={styles.mobile_nav_link_title}>
-                                                    {navLink.title}
+                                                    {t(navLink.title)}
                                                 </span>
                                             </Link>
                                         )}
                                     </React.Fragment>
                                 )
                             })}
-                            <div className={styles.mobile_nav_link}
-                                onClick={() => setOpenLanguages(true)}
-                                style={{ cursor: 'pointer' }}
-                            >
-
-                                <div className={styles.mobile_nav_link_icon}>
-                                    <Avatar src={Languages.find(lang => lang.value === 'en')?.icon} alt='language icon' sx={{ width: 20, height: 20 }} />
-                                </div>
-                                <span className={styles.mobile_nav_link_title}>
-                                    Select a country
-                                    <KeyboardArrowRightOutlinedIcon />
-                                </span>
-                            </div>
+                            <CustomLanguage
+                                countryCode={countryCode}
+                                language={language}
+                            />
                         </div>
-                        {openLangues && (
-                            <MobileNavbarLanguages openLangues={openLangues} setOpenLanguages={setOpenLanguages} />
-                        )}
                     </div>
                 </>
             )}

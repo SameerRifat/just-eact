@@ -4,8 +4,8 @@ import React, { useEffect, useRef, useState } from 'react'
 import styles from './navbar.module.css';
 import navData from './navData';
 import Link from 'next/link';
-import Language from './language/Language';
-import { Avatar, useMediaQuery } from '@mui/material';
+import CustomLanguage from "./language2/CustomLanguage";
+import { Avatar, Typography, useMediaQuery } from '@mui/material';
 import CardGiftcardOutlinedIcon from '@mui/icons-material/CardGiftcardOutlined';
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { useDispatch, useSelector } from 'react-redux';
@@ -16,13 +16,17 @@ import { getGuestId } from "../../../helper-functions/getToken";
 import { setWalletAmount } from "../../../redux/slices/cart";
 import { setUser } from "../../../redux/slices/profileInfo";
 import useGetUserInfo from "../../../api-manage/hooks/react-query/user/useGetUserInfo";
+import { useTranslation } from "react-i18next";
 
 const NavbarLinks = () => {
+    const { t } = useTranslation();
     const lgUp = useMediaQuery('(min-width: 1024px)');
     const mdUp = useMediaQuery('(min-width: 900px)');
 
-    const [language, setLanguage] = useState('en');
-    const token = localStorage.getItem('token')
+    let token = undefined;
+    if (typeof window !== "undefined") {
+        token = localStorage.getItem("token");
+    }
 
     const dispatch = useDispatch();
     const handleSuccess = (res) => {
@@ -52,6 +56,10 @@ const NavbarLinks = () => {
     const handleClose = () => {
         setAnchorEl(null);
     };
+
+    const { configData, countryCode, language } = useSelector(
+        (state) => state.configData
+    );
 
     return (
         <>
@@ -89,13 +97,18 @@ const NavbarLinks = () => {
                                     {lgUp && navLink.icon && (
                                         <img src={navLink.icon} alt='icon' width={24} height={24} />
                                     )}
-                                    <p>{navLink.title}</p>
+                                    <p>{t(navLink.title)}</p>
                                 </Link>
                             )}
                         </React.Fragment>
                     )
                 })}
-                {mdUp && <Language language={language} setLanguage={setLanguage} />}
+                {mdUp && (
+                    <CustomLanguage
+                        countryCode={countryCode}
+                        language={language}
+                    />
+                )}
                 {!mdUp && (
                     <Link href='/offers'>
                         <CardGiftcardOutlinedIcon style={{ color: 'rgb(243, 104, 5)' }} />

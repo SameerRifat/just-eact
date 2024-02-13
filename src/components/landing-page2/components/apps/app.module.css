@@ -1,5 +1,6 @@
 .apps_section{
     background-color: white;
+    border: 1px solid transparent;
 }
 
 @media screen and (min-width: 100rem) {
@@ -43,7 +44,7 @@
 }
 
 .apps_heading {
-    max-width: 570px;
+    /* max-width: 570px; */
     font-size: 2rem;
     color: #242e30;
     font-weight: 800;
@@ -84,10 +85,6 @@
 }
 
 @media screen and (max-width: 800px) {
-    .apps_container {
-        margin-top: 12rem;
-    }
-
     .app_links {
         flex-direction: column;
     }
@@ -119,9 +116,14 @@
         width: 100% !important;
     }
 }
+@media screen and (max-width: 550px) {
+    .apps_container{
+        margin-top: 13rem;
+    }
+}
 @media screen and (max-width: 400px) {
     .apps_container{
-        margin-top: 14rem;
+        margin-top: 16rem;
     }
     .promo_img_container{
         max-width: 100px;
