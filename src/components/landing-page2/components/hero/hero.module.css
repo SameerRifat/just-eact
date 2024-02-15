@@ -114,6 +114,15 @@
   border: none;
   outline: none;
 }
+/* .btn{
+  width: 45px;
+  height: 45px;
+  border-radius: 100%;
+  margin: 4px;
+  border: none;
+  outline: none;
+
+} */
 
 @media screen and (max-width: 900px) {
   .search_card {
@@ -185,9 +194,20 @@
   .search_card {
     bottom: -70%;
   }
+  .search_btn {
+    /* border: 2px solid black; */
+    width: 46px;
+    height: 46px;
+    min-height: 45px;
+    font-size: 10px;
+    font-weight: 400;
+    padding: 0;
+    margin: 2px;
+  }
 }
 @media screen and (max-width: 300px) {
   .search_card {
+    padding: 10px;
     bottom: -85%;
   }
 }

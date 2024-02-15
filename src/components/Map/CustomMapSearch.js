@@ -4,7 +4,7 @@ import {
   CustomSearchField,
   SearchLocationTextField,
 } from "../landing-page/hero-section/HeroSection.style";
-import { Autocomplete } from "@mui/material";
+import { Autocomplete, useMediaQuery } from "@mui/material";
 import { alpha, IconButton } from "@mui/material";
 import GpsFixedIcon from "@mui/icons-material/GpsFixed";
 import CloseIcon from "@mui/icons-material/Close";
@@ -29,10 +29,17 @@ const CustomMapSearch = ({
   borderRadius,
   toReceiver,
 }) => {
+  const xs = useMediaQuery("(min-width: 350px)");
+
   return (
     <>
       {!showCurrentLocation ? (
         <Autocomplete
+          sx={{
+            height: '30px',
+            marginLeft: '10px'
+          }}
+          size="small"
           fullWidth
           options={predictions}
           getOptionLabel={(option) => option.description}
@@ -45,12 +52,13 @@ const CustomMapSearch = ({
           }
           renderInput={(params) => (
             <SearchLocationTextField
+              size="small"
               noleftborder={noleftborder}
               frommap={frommap}
               fromparcel={fromparcel}
               id="outlined-basic"
               {...params}
-              placeholder={t("Search location here...")}
+              placeholder={t(`${xs ? 'Search location here...' : 'Search'}`)}
               onChange={(event) => HandleChangeForSearch(event)}
               InputProps={{
                 ...params.InputProps,
@@ -63,7 +71,7 @@ const CustomMapSearch = ({
                         borderRadius: borderRadius ? borderRadius : "0px",
                         padding: "7px 10px",
                       }}
-                      // onClick={() => handleAgreeLocation()}
+                    // onClick={() => handleAgreeLocation()}
                     >
                       <SearchIcon />
                     </IconButton>

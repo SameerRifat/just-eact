@@ -4,6 +4,7 @@ import Image from "next/image";
 import { TextField, useMediaQuery } from "@mui/material";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import { useTranslation } from "react-i18next";
+import HeroLocationForm from "./HeroLocationForm";
 
 const Hero = () => {
   const { t } = useTranslation();
@@ -24,7 +25,8 @@ const Hero = () => {
         <h2 className={styles.search_sub_title}>
           {t("Find restaurants delivering right now, near you")}
         </h2>
-        <form className={styles.form}>
+        <HeroLocationForm />
+        {/* <form className={styles.form}>
           <div className={styles.form_search_wrapper}>
             <div className={styles.search_field_wrapper}>
               <TextField
@@ -52,7 +54,7 @@ const Hero = () => {
               {!mdUp ? <SearchOutlinedIcon /> : <>{t("Search")}</>}
             </button>
           </div>
-        </form>
+        </form> */}
       </div>
     </div>
   );
