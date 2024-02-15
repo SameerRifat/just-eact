@@ -6,6 +6,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import { IconButton, useMediaQuery } from '@mui/material';
 import MobileNavbar from './MobileNavbar';
+import Image from 'next/image';
 
 const Navbar = () => {
     const lgUp = useMediaQuery('(min-width: 1024px)');
@@ -24,7 +25,7 @@ const Navbar = () => {
                     )}
                     <div className={styles.logo}>
                         <Link href='/' style={{ color: 'rgb(243, 104, 5)', fontSize: '20px', fontWeight: 600 }}>
-                            Logo
+                            <Image src={"/landing-page/logo.png"} alt="logo" width={120} height={40} />
                         </Link>
                     </div>
                     <NavbarLinks />

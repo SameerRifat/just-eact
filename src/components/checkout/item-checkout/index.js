@@ -75,6 +75,7 @@ import {
 
 import CustomImageContainer from "../../CustomImageContainer";
 import thunderstorm from "../assets/thunderstorm.svg";
+import PaymentMethod from "../PaymentMethod";
 
 const ItemCheckout = (props) => {
   const { configData, router, page, cartList, campaignItemList, totalAmount } =
@@ -861,17 +862,33 @@ const ItemCheckout = (props) => {
               pb={{ xs: "1rem", sm: "2rem", md: "4rem" }}
             >
               <CheckoutStepper />
-              {zoneData && (
-                <AddPaymentMethod
-                  setPaymentMethod={setPaymentMethod}
-                  paymentMethod={paymentMethod}
-                  zoneData={zoneData}
-                  configData={configData}
-                  orderType={orderType}
-                  usePartialPayment={usePartialPayment}
-                  offlinePaymentOptions={offlinePaymentOptions}
-                  setSwitchToWallet={setSwitchToWallet}
-                />
+              {!zoneData && (
+                <>
+                  {/* <AddPaymentMethod
+                    setPaymentMethod={setPaymentMethod}
+                    paymentMethod={paymentMethod}
+                    zoneData={zoneData}
+                    configData={configData}
+                    orderType={orderType}
+                    usePartialPayment={usePartialPayment}
+                    offlinePaymentOptions={offlinePaymentOptions}
+                    setSwitchToWallet={setSwitchToWallet}
+                  /> */}
+                  <PaymentMethod
+                    setPaymentMethod={setPaymentMethod}
+                    paymentMethod={paymentMethod}
+                    zoneData={zoneData}
+                    configData={configData}
+                    orderType={orderType}
+                    usePartialPayment={usePartialPayment}
+                    setOpenModel={() => setOpenModal(true)}
+                    forprescription={null}
+                    offlinePaymentOptions={offlinePaymentOptions}
+                    paymentMethodImage={null}
+                    setPaymentMethodImage={()=>null}
+                    setSwitchToWallet={setSwitchToWallet}
+                  />
+                </>
               )}
 
               <DeliveryDetails
